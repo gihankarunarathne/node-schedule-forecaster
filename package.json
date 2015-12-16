@@ -1,0 +1,35 @@
+{
+  "name": "schedule-forecaster",
+  "version": "0.0.1",
+  "description": "A schedule forecaster for NodeJS which expose a generic API to calculate number of occurrences within given time period. Useful for API clients and sms, email, notification daemons which tasks that need to calculate occurrence of a given event.",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test",
+    "test-debug": "DEBUG=ScheduleForecaster:* gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gihankarunarathne/node-schedule-forecaster.git"
+  },
+  "keywords": [
+    "schedule",
+    "forecast",
+    "es6"
+  ],
+  "author": "Gihan Karunarathne <gckarunarathne@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gihankarunarathne/node-schedule-forecaster/issues"
+  },
+  "homepage": "https://github.com/gihankarunarathne/node-schedule-forecaster#readme",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "dependencies": {
+    "debug": "^2.2.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-mocha": "^2.2.0"
+  }
+}
