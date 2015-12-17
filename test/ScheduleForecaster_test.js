@@ -5,7 +5,7 @@ var ScheduleForecaster = require("../lib/ScheduleForecaster");
 
 let debug = require('debug')('test:message_schedule');
 
-describe("ScheduleMsg: ", function() {
+describe("ScheduleForecaster: ", function() {
     let forecaster = null;
 
     before(function(done) {
@@ -19,14 +19,15 @@ describe("ScheduleMsg: ", function() {
         done();
     });
 
-    describe('Message Forecast Monthly global limit ', () => {
+    describe('Forecast Monthly global limit ', () => {
 
         it('should forecast for monthly recurrence ', done => {
-            const forecast = forecaster.messageForecast({
+            const forecast = forecaster.forecastSchedule({
                 numberCount: 10,
                 recurrence: 'monthly',
                 limitPeriod: 'monthly',
-                startDate: new Date(2018, 11, 17)
+                startDate: new Date(2018, 11, 17),
+                endDate: new Date(2019, 2, 17)
             });
             debug('Forecast : ', forecast);
             assert.equal(forecast.forecastMessages, 10);
@@ -34,11 +35,12 @@ describe("ScheduleMsg: ", function() {
         });
 
         it('should forecast for weekly recurrence ', done => {
-            const forecast = forecaster.messageForecast({
+            const forecast = forecaster.forecastSchedule({
                 numberCount: 10,
                 recurrence: 'weekly',
                 limitPeriod: 'monthly',
-                startDate: new Date(2018, 11, 17)
+                startDate: new Date(2018, 11, 17),
+                endDate: new Date(2019, 2, 17)
             });
             debug('Forecast : ', forecast);
             assert.equal(forecast.forecastMessages, 30);
@@ -46,11 +48,12 @@ describe("ScheduleMsg: ", function() {
         });
 
         it('should forecast for daily recurrence ', done => {
-            const forecast = forecaster.messageForecast({
+            const forecast = forecaster.forecastSchedule({
                 numberCount: 10,
                 recurrence: 'daily',
                 limitPeriod: 'monthly',
-                startDate: new Date(2018, 10, 17)
+                startDate: new Date(2018, 10, 17),
+                endDate: new Date(2019, 2, 17)
             });
             debug('Forecast : ', forecast);
             assert.equal(forecast.forecastMessages, 140);
@@ -58,11 +61,12 @@ describe("ScheduleMsg: ", function() {
         });
 
         it('should forecast for once ', done => {
-            const forecast = forecaster.messageForecast({
+            const forecast = forecaster.forecastSchedule({
                 numberCount: 10,
                 recurrence: 'once',
                 limitPeriod: 'monthly',
-                startDate: new Date(2018, 10, 17)
+                startDate: new Date(2018, 10, 17),
+                endDate: new Date(2019, 2, 17)
             });
             debug('Forecast : ', forecast);
             assert.equal(forecast.forecastMessages, 10);
@@ -74,11 +78,12 @@ describe("ScheduleMsg: ", function() {
     describe('Message Forecast Weekly global limit', () => {
 
         it('should forecast for once ', done => {
-            const forecast = forecaster.messageForecast({
+            const forecast = forecaster.forecastSchedule({
                 numberCount: 10,
                 recurrence: 'once',
                 limitPeriod: 'weekly',
-                startDate: new Date(2018, 11, 17)
+                startDate: new Date(2018, 11, 17),
+                endDate: new Date(2019, 2, 17)
             });
             debug('Forecast : ', forecast);
             assert.equal(forecast.forecastMessages, 10);
@@ -86,11 +91,12 @@ describe("ScheduleMsg: ", function() {
         });
 
         it('should forecast for daily recurrence ', done => {
-            const forecast = forecaster.messageForecast({
+            const forecast = forecaster.forecastSchedule({
                 numberCount: 10,
                 recurrence: 'daily',
                 limitPeriod: 'weekly',
-                startDate: new Date(2018, 11, 17)
+                startDate: new Date(2018, 11, 17),
+                endDate: new Date(2019, 2, 17)
             });
             debug('Forecast : ', forecast);
             assert.equal(forecast.forecastMessages, 60);
@@ -98,11 +104,12 @@ describe("ScheduleMsg: ", function() {
         });
 
         it('should forecast for weekly recurrence', done => {
-            const forecast = forecaster.messageForecast({
+            const forecast = forecaster.forecastSchedule({
                 numberCount: 10,
                 recurrence: 'weekly',
                 limitPeriod: 'weekly',
-                startDate: new Date(2018, 11, 17)
+                startDate: new Date(2018, 11, 17),
+                endDate: new Date(2019, 2, 17)
             });
             debug('Forecast : ', forecast);
             assert.equal(forecast.forecastMessages, 10);
@@ -110,11 +117,12 @@ describe("ScheduleMsg: ", function() {
         });
 
         it('should forecast for monthly recurrence', done => {
-            const forecast = forecaster.messageForecast({
+            const forecast = forecaster.forecastSchedule({
                 numberCount: 10,
                 recurrence: 'monthly',
                 limitPeriod: 'weekly',
-                startDate: new Date(2018, 11, 17)
+                startDate: new Date(2018, 11, 17),
+                endDate: new Date(2019, 2, 17)
             });
             debug('Forecast : ', forecast);
             assert.equal(forecast.forecastMessages, 10);
@@ -126,11 +134,12 @@ describe("ScheduleMsg: ", function() {
     describe('Message Forecast Daily global limit', () => {
 
         it('should forecast for monthly recurrence ', done => {
-            const forecast = forecaster.messageForecast({
+            const forecast = forecaster.forecastSchedule({
                 numberCount: 10,
                 recurrence: 'monthly',
                 limitPeriod: 'daily',
-                startDate: new Date(2018, 10, 17)
+                startDate: new Date(2018, 10, 17),
+                endDate: new Date(2019, 2, 17)
             });
             debug('Forecast : ', forecast);
             assert.equal(forecast.forecastMessages, 10);
@@ -138,11 +147,12 @@ describe("ScheduleMsg: ", function() {
         });
 
         it('should forecast for weekly recurrence ', done => {
-            const forecast = forecaster.messageForecast({
+            const forecast = forecaster.forecastSchedule({
                 numberCount: 10,
                 recurrence: 'weekly',
                 limitPeriod: 'daily',
-                startDate: new Date(2018, 10, 17)
+                startDate: new Date(2018, 10, 17),
+                endDate: new Date(2019, 2, 17)
             });
             debug('Forecast : ', forecast);
             assert.equal(forecast.forecastMessages, 10);
@@ -150,11 +160,12 @@ describe("ScheduleMsg: ", function() {
         });
 
         it('should forecast for daily recurrence ', done => {
-            const forecast = forecaster.messageForecast({
+            const forecast = forecaster.forecastSchedule({
                 numberCount: 10,
                 recurrence: 'daily',
                 limitPeriod: 'daily',
-                startDate: new Date(2018, 10, 17)
+                startDate: new Date(2018, 10, 17),
+                endDate: new Date(2019, 2, 17)
             });
             debug('Forecast : ', forecast);
             assert.equal(forecast.forecastMessages, 10);
@@ -162,11 +173,12 @@ describe("ScheduleMsg: ", function() {
         });
 
         it('should forecast for once ', done => {
-            const forecast = forecaster.messageForecast({
+            const forecast = forecaster.forecastSchedule({
                 numberCount: 10,
                 recurrence: 'once',
                 limitPeriod: 'daily',
-                startDate: new Date(2018, 10, 17)
+                startDate: new Date(2018, 10, 17),
+                endDate: new Date(2019, 2, 17)
             });
             debug('Forecast : ', forecast);
             assert.equal(forecast.forecastMessages, 10);
@@ -177,13 +189,14 @@ describe("ScheduleMsg: ", function() {
 
     describe('Message Forecast failure ', () => {
         it('should not forecast when recurrence not given ', done => {
-            const forecast = forecaster.messageForecast({
+            const forecast = forecaster.forecastSchedule({
                 numberCount: 10,
                 limitPeriod: 'daily',
-                startDate: new Date(2018, 10, 17)
+                startDate: new Date(2018, 10, 17),
+                endDate: new Date(2019, 2, 17)
             });
             debug('Forecast : ', forecast);
-            assert.equal(forecast.forecastMessages, 0);
+            assert.equal(forecast.forecastMessages, 10);
             done();
         });
     });
