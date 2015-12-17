@@ -4,7 +4,7 @@ let assert = require('assert');
 let NextTime = require('../lib/NextTime');
 let debug = require('debug')('ScheduleForecaster:test:NextTime');
 
-describe.only('NextTime ', () => {
+describe('NextTime ', () => {
     let nextTime = null;
 
     before(done => {
@@ -32,6 +32,25 @@ describe.only('NextTime ', () => {
         it('should return month date object ', done => {
             const d = nextTime.nextMonth();
             assert.ok(d instanceof Date);
+            done();
+        });
+
+        it('should return month date object at year end ', done => {
+            const d = nextTime.nextMonth(new Date(2015, 11, 17));
+            assert.deepEqual(d, new Date(2016, 0, 17));
+            done();
+        });
+
+        it('should return month date object at year end ', done => {
+            const d = nextTime.nextMonth(new Date(2015, 11, 31));
+            assert.deepEqual(d, new Date(2016, 0, 31));
+            done();
+        });
+
+        it('should return month date object for February ', done => {
+            const d = nextTime.nextMonth(new Date(2016, 0, 31));
+            debug(d);
+            assert.deepEqual(d, new Date(2016, 1, 29));
             done();
         });
     });
