@@ -1,7 +1,7 @@
 'use strict';
 
 let assert = require('assert');
-let NextTime = require('../lib/NextTime');
+let NextTime = require('../index').NextTime;
 let debug = require('debug')('ScheduleForecaster:test:NextTime');
 
 describe('NextTime ', () => {
@@ -15,7 +15,6 @@ describe('NextTime ', () => {
     describe('NextDate ', () => {
         it('should return tomorrow date object ', done => {
             const d = nextTime.nextDate();
-            console.log('>>> ', d)
             assert.ok(d instanceof Date);
             done();
         });

@@ -1,7 +1,7 @@
 'use strict';
 
 var assert = require("assert");
-var ScheduleForecaster = require("../lib/ScheduleForecaster");
+var ScheduleForecaster = require("../index").ScheduleForecaster;
 
 let debug = require('debug')('ScheduleForecaster:test:ScheduleForecaster');
 
