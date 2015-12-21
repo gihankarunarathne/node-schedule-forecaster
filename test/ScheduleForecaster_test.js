@@ -23,7 +23,7 @@ describe("ScheduleForecaster: ", function() {
 
         it('should forecast for monthly recurrence ', done => {
             const forecast = forecaster.forecastSchedule({
-                numberCount: 10,
+                size: 10,
                 recurrence: 'monthly',
                 limitPeriod: 'monthly',
                 startDate: new Date(2018, 11, 17),
@@ -44,7 +44,7 @@ describe("ScheduleForecaster: ", function() {
 
         it('should forecast for weekly recurrence ', done => {
             const forecast = forecaster.forecastSchedule({
-                numberCount: 10,
+                size: 10,
                 recurrence: 'weekly',
                 limitPeriod: 'monthly',
                 startDate: new Date(2018, 11, 17),
@@ -62,7 +62,7 @@ describe("ScheduleForecaster: ", function() {
 
         it('should forecast for daily recurrence ', done => {
             const forecast = forecaster.forecastSchedule({
-                numberCount: 10,
+                size: 10,
                 recurrence: 'daily',
                 limitPeriod: 'monthly',
                 startDate: new Date(2018, 10, 17),
@@ -80,7 +80,7 @@ describe("ScheduleForecaster: ", function() {
 
         it('should forecast for once ', done => {
             const forecast = forecaster.forecastSchedule({
-                numberCount: 10,
+                size: 10,
                 recurrence: 'once',
                 limitPeriod: 'monthly',
                 startDate: new Date(2018, 10, 17),
@@ -101,7 +101,7 @@ describe("ScheduleForecaster: ", function() {
 
         it('should forecast for once ', done => {
             const forecast = forecaster.forecastSchedule({
-                numberCount: 10,
+                size: 10,
                 recurrence: 'once',
                 limitPeriod: 'weekly',
                 startDate: new Date(2018, 11, 17),
@@ -118,7 +118,7 @@ describe("ScheduleForecaster: ", function() {
 
         it('should forecast for daily recurrence ', done => {
             const forecast = forecaster.forecastSchedule({
-                numberCount: 10,
+                size: 10,
                 recurrence: 'daily',
                 limitPeriod: 'weekly',
                 startDate: new Date(2018, 11, 17),
@@ -138,7 +138,7 @@ describe("ScheduleForecaster: ", function() {
 
         it('should forecast for weekly recurrence', done => {
             const forecast = forecaster.forecastSchedule({
-                numberCount: 10,
+                size: 10,
                 recurrence: 'weekly',
                 limitPeriod: 'weekly',
                 startDate: new Date(2018, 11, 17),
@@ -156,7 +156,7 @@ describe("ScheduleForecaster: ", function() {
 
         it('should forecast for monthly recurrence', done => {
             const forecast = forecaster.forecastSchedule({
-                numberCount: 10,
+                size: 10,
                 recurrence: 'monthly',
                 limitPeriod: 'weekly',
                 startDate: new Date(2018, 11, 17),
@@ -181,7 +181,7 @@ describe("ScheduleForecaster: ", function() {
 
         it('should forecast for monthly recurrence ', done => {
             const forecast = forecaster.forecastSchedule({
-                numberCount: 10,
+                size: 10,
                 recurrence: 'monthly',
                 limitPeriod: 'daily',
                 startDate: new Date(2018, 10, 17),
@@ -203,7 +203,7 @@ describe("ScheduleForecaster: ", function() {
 
         it('should forecast for weekly recurrence ', done => {
             const forecast = forecaster.forecastSchedule({
-                numberCount: 10,
+                size: 10,
                 recurrence: 'weekly',
                 limitPeriod: 'daily',
                 startDate: new Date(2018, 11, 17),
@@ -224,7 +224,7 @@ describe("ScheduleForecaster: ", function() {
 
         it('should forecast for daily recurrence ', done => {
             const forecast = forecaster.forecastSchedule({
-                numberCount: 10,
+                size: 10,
                 recurrence: 'daily',
                 limitPeriod: 'daily',
                 startDate: new Date(2019, 0, 1),
@@ -243,7 +243,7 @@ describe("ScheduleForecaster: ", function() {
 
         it('should forecast for once ', done => {
             const forecast = forecaster.forecastSchedule({
-                numberCount: 10,
+                size: 10,
                 recurrence: 'once',
                 limitPeriod: 'daily',
                 startDate: new Date(2018, 10, 17),
@@ -263,7 +263,7 @@ describe("ScheduleForecaster: ", function() {
     describe('Forecast failure ', () => {
         it('should not forecast when recurrence not given ', done => {
             const forecast = forecaster.forecastSchedule({
-                numberCount: 10,
+                size : 10,
                 limitPeriod: 'daily',
                 startDate: new Date(2018, 10, 17),
                 endDate: new Date(2019, 2, 17)
