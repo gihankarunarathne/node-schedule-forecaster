@@ -3,7 +3,7 @@
 var assert = require("assert");
 var ScheduleForecaster = require("../lib/ScheduleForecaster");
 
-let debug = require('debug')('test:message_schedule');
+let debug = require('debug')('ScheduleForecaster:test:ScheduleForecaster');
 
 describe("ScheduleForecaster: ", function() {
     let forecaster = null;
@@ -30,7 +30,7 @@ describe("ScheduleForecaster: ", function() {
                 endDate: new Date(2019, 2, 17)
             });
             debug('Forecast : ', forecast);
-            assert.equal(forecast.forecastMessages, 10);
+            assert.equal(forecast.forecastMessages, 30);
             done();
         });
 
@@ -40,7 +40,7 @@ describe("ScheduleForecaster: ", function() {
                 recurrence: 'weekly',
                 limitPeriod: 'monthly',
                 startDate: new Date(2018, 11, 17),
-                endDate: new Date(2019, 2, 17)
+                endDate: new Date(2019, 0, 1)
             });
             debug('Forecast : ', forecast);
             assert.equal(forecast.forecastMessages, 30);
@@ -53,10 +53,10 @@ describe("ScheduleForecaster: ", function() {
                 recurrence: 'daily',
                 limitPeriod: 'monthly',
                 startDate: new Date(2018, 10, 17),
-                endDate: new Date(2019, 2, 17)
+                endDate: new Date(2018, 11, 17)
             });
             debug('Forecast : ', forecast);
-            assert.equal(forecast.forecastMessages, 140);
+            assert.equal(forecast.forecastMessages, 300);
             done();
         });
 
@@ -75,7 +75,7 @@ describe("ScheduleForecaster: ", function() {
 
     });
 
-    describe('Message Forecast Weekly global limit', () => {
+    describe('Forecast Weekly global limit', () => {
 
         it('should forecast for once ', done => {
             const forecast = forecaster.forecastSchedule({
@@ -96,10 +96,10 @@ describe("ScheduleForecaster: ", function() {
                 recurrence: 'daily',
                 limitPeriod: 'weekly',
                 startDate: new Date(2018, 11, 17),
-                endDate: new Date(2019, 2, 17)
+                endDate: new Date(2019, 0, 17)
             });
             debug('Forecast : ', forecast);
-            assert.equal(forecast.forecastMessages, 60);
+            assert.equal(forecast.forecastMessages, 310);
             done();
         });
 
@@ -109,10 +109,10 @@ describe("ScheduleForecaster: ", function() {
                 recurrence: 'weekly',
                 limitPeriod: 'weekly',
                 startDate: new Date(2018, 11, 17),
-                endDate: new Date(2019, 2, 17)
+                endDate: new Date(2019, 0, 1)
             });
             debug('Forecast : ', forecast);
-            assert.equal(forecast.forecastMessages, 10);
+            assert.equal(forecast.forecastMessages, 30);
             done();
         });
 
@@ -125,7 +125,7 @@ describe("ScheduleForecaster: ", function() {
                 endDate: new Date(2019, 2, 17)
             });
             debug('Forecast : ', forecast);
-            assert.equal(forecast.forecastMessages, 10);
+            assert.equal(forecast.forecastMessages, 30);
             done();
         });
 
@@ -142,7 +142,7 @@ describe("ScheduleForecaster: ", function() {
                 endDate: new Date(2019, 2, 17)
             });
             debug('Forecast : ', forecast);
-            assert.equal(forecast.forecastMessages, 10);
+            assert.equal(forecast.forecastMessages, 40);
             done();
         });
 
@@ -151,11 +151,11 @@ describe("ScheduleForecaster: ", function() {
                 numberCount: 10,
                 recurrence: 'weekly',
                 limitPeriod: 'daily',
-                startDate: new Date(2018, 10, 17),
-                endDate: new Date(2019, 2, 17)
+                startDate: new Date(2018, 11, 17),
+                endDate: new Date(2019, 2, 3)
             });
             debug('Forecast : ', forecast);
-            assert.equal(forecast.forecastMessages, 10);
+            assert.equal(forecast.forecastMessages, 110);
             done();
         });
 
@@ -164,11 +164,11 @@ describe("ScheduleForecaster: ", function() {
                 numberCount: 10,
                 recurrence: 'daily',
                 limitPeriod: 'daily',
-                startDate: new Date(2018, 10, 17),
-                endDate: new Date(2019, 2, 17)
+                startDate: new Date(2019, 0, 1),
+                endDate: new Date(2019, 2, 1, 0, 0, 1)
             });
             debug('Forecast : ', forecast);
-            assert.equal(forecast.forecastMessages, 10);
+            assert.equal(forecast.forecastMessages, 600);
             done();
         });
 
@@ -187,7 +187,7 @@ describe("ScheduleForecaster: ", function() {
 
     });
 
-    describe('Message Forecast failure ', () => {
+    describe('Forecast failure ', () => {
         it('should not forecast when recurrence not given ', done => {
             const forecast = forecaster.forecastSchedule({
                 numberCount: 10,
@@ -196,7 +196,7 @@ describe("ScheduleForecaster: ", function() {
                 endDate: new Date(2019, 2, 17)
             });
             debug('Forecast : ', forecast);
-            assert.equal(forecast.forecastMessages, 10);
+            assert.equal(forecast.forecastMessages, 40);
             done();
         });
     });

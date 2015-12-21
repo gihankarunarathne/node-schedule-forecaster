@@ -53,6 +53,13 @@ describe('NextTime ', () => {
             assert.deepEqual(d, new Date(2016, 1, 29));
             done();
         });
+
+        it('should return month date object from February ', done => {
+            const d = nextTime.nextMonth(new Date(2016, 1, 29), 31);
+            debug(d);
+            assert.deepEqual(d, new Date(2016, 2, 31));
+            done();
+        });
     });
 
 });
