@@ -15,7 +15,14 @@ describe('NextTime ', () => {
     describe('NextDate ', () => {
         it('should return tomorrow date object ', done => {
             const d = nextTime.nextDate();
+            console.log('>>> ', d)
             assert.ok(d instanceof Date);
+            done();
+        });
+
+        it('should return next date ', done => {
+            const d = nextTime.nextDate(new Date(2015, 11, 17));
+            assert.deepEqual(d, new Date(2015, 11, 18));
             done();
         });
     });
@@ -24,6 +31,12 @@ describe('NextTime ', () => {
         it('should return next week date object ', done => {
             const d = nextTime.nextWeek();
             assert.ok(d instanceof Date);
+            done();
+        });
+
+        it('should return next week ', done => {
+            const d = nextTime.nextWeek(new Date(2015, 11, 17));
+            assert.deepEqual(d, new Date(2015, 11, 24));
             done();
         });
     });
