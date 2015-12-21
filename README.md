@@ -9,7 +9,7 @@ Use NPM to install using;
 
 ## Getting Started
 
-Lets assume that we want to send a SMS to 10 mobile subscribers in each month. So, we are planing to create a schedule for this task. This schedule is going to start on 17th November of 2018 1.00 A.M., and we want to repeat this event on every month until it's end on 17th February of 2019, 2.00 A.M. Then we can calculate/forecast the number of SMS to be send on each month as below;
+Lets assume that we want to send a SMS to 10 mobile subscribers in each month. So, we are planing to create a schedule for this task. This schedule is going to start on 17th December of 2018 1.00 A.M., and we want to repeat this event on every month until it's end on 17th March of 2019, 2.00 A.M. Then we can calculate/forecast the number of SMS to be send on each month as below;
 
 ```JavaScript
 let ScheduleForecaster = require('schedule-forecaster').ScheduleForecaster;
@@ -24,7 +24,7 @@ const forecast = forecaster.forecastSchedule({
 });
 
 console.log(forecast);
-// {'2018': { '12': 10}, '2019': { '1': 10, '2': 10 } }
+// {'2018': { '12': 10}, '2019': { '1': 10, '2': 10, '3': 10} }
 ```
 See test cases for more details.
 
