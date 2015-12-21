@@ -30,7 +30,15 @@ describe("ScheduleForecaster: ", function() {
                 endDate: new Date(2019, 2, 17)
             });
             debug('Forecast : ', forecast);
-            assert.equal(forecast.forecastMessages, 30);
+            assert.deepEqual(forecast, {
+                '2018': {
+                    '12': 10
+                },
+                '2019': {
+                    '1': 10,
+                    '2': 10
+                }
+            });
             done();
         });
 
@@ -43,7 +51,12 @@ describe("ScheduleForecaster: ", function() {
                 endDate: new Date(2019, 0, 1)
             });
             debug('Forecast : ', forecast);
-            assert.equal(forecast.forecastMessages, 30);
+            assert.deepEqual(forecast, {
+                '2018': {
+                    '12': 30
+                },
+                '2019': {}
+            });
             done();
         });
 
@@ -56,7 +69,12 @@ describe("ScheduleForecaster: ", function() {
                 endDate: new Date(2018, 11, 17)
             });
             debug('Forecast : ', forecast);
-            assert.equal(forecast.forecastMessages, 300);
+            assert.deepEqual(forecast, {
+                '2018': {
+                    '11': 140,
+                    '12': 160
+                }
+            });
             done();
         });
 
@@ -69,7 +87,11 @@ describe("ScheduleForecaster: ", function() {
                 endDate: new Date(2019, 2, 17)
             });
             debug('Forecast : ', forecast);
-            assert.equal(forecast.forecastMessages, 10);
+            assert.deepEqual(forecast, {
+                '2018': {
+                    '11': 10
+                }
+            });
             done();
         });
 
@@ -86,7 +108,11 @@ describe("ScheduleForecaster: ", function() {
                 endDate: new Date(2019, 2, 17)
             });
             debug('Forecast : ', forecast);
-            assert.equal(forecast.forecastMessages, 10);
+            assert.deepEqual(forecast, {
+                '2018': {
+                    '12': 10
+                }
+            });
             done();
         });
 
@@ -99,7 +125,14 @@ describe("ScheduleForecaster: ", function() {
                 endDate: new Date(2019, 0, 17)
             });
             debug('Forecast : ', forecast);
-            assert.equal(forecast.forecastMessages, 310);
+            assert.deepEqual(forecast, {
+                '2018': {
+                    '12': 150
+                },
+                '2019': {
+                    '1': 160
+                }
+            });
             done();
         });
 
@@ -112,7 +145,12 @@ describe("ScheduleForecaster: ", function() {
                 endDate: new Date(2019, 0, 1)
             });
             debug('Forecast : ', forecast);
-            assert.equal(forecast.forecastMessages, 30);
+            assert.deepEqual(forecast, {
+                '2018': {
+                    '12': 30
+                },
+                '2019': {}
+            });
             done();
         });
 
@@ -125,7 +163,15 @@ describe("ScheduleForecaster: ", function() {
                 endDate: new Date(2019, 2, 17)
             });
             debug('Forecast : ', forecast);
-            assert.equal(forecast.forecastMessages, 30);
+            assert.deepEqual(forecast, {
+                '2018': {
+                    '12': 10
+                },
+                '2019': {
+                    '1': 10,
+                    '2': 10
+                }
+            });
             done();
         });
 
@@ -142,7 +188,16 @@ describe("ScheduleForecaster: ", function() {
                 endDate: new Date(2019, 2, 17)
             });
             debug('Forecast : ', forecast);
-            assert.equal(forecast.forecastMessages, 40);
+            assert.deepEqual(forecast, {
+                '2018': {
+                    '11': 10,
+                    '12': 10
+                },
+                '2019': {
+                    '1': 10,
+                    '2': 10
+                }
+            });
             done();
         });
 
@@ -155,7 +210,15 @@ describe("ScheduleForecaster: ", function() {
                 endDate: new Date(2019, 2, 3)
             });
             debug('Forecast : ', forecast);
-            assert.equal(forecast.forecastMessages, 110);
+            assert.deepEqual(forecast, {
+                '2018': {
+                    '12': 30
+                },
+                '2019': {
+                    '1': 40,
+                    '2': 40
+                }
+            });
             done();
         });
 
@@ -168,7 +231,13 @@ describe("ScheduleForecaster: ", function() {
                 endDate: new Date(2019, 2, 1, 0, 0, 1)
             });
             debug('Forecast : ', forecast);
-            assert.equal(forecast.forecastMessages, 600);
+            assert.deepEqual(forecast, {
+                '2019': {
+                    '1': 310,
+                    '2': 280,
+                    '3': 10
+                }
+            });
             done();
         });
 
@@ -181,7 +250,11 @@ describe("ScheduleForecaster: ", function() {
                 endDate: new Date(2019, 2, 17)
             });
             debug('Forecast : ', forecast);
-            assert.equal(forecast.forecastMessages, 10);
+            assert.deepEqual(forecast, {
+                '2018': {
+                    '11': 10
+                }
+            });
             done();
         });
 
@@ -196,7 +269,16 @@ describe("ScheduleForecaster: ", function() {
                 endDate: new Date(2019, 2, 17)
             });
             debug('Forecast : ', forecast);
-            assert.equal(forecast.forecastMessages, 40);
+            assert.deepEqual(forecast, {
+                '2018': {
+                    '11': 10,
+                    '12': 10
+                },
+                '2019': {
+                    '1': 10,
+                    '2': 10
+                }
+            });
             done();
         });
     });
