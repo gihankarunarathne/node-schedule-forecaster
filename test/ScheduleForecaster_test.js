@@ -260,6 +260,26 @@ describe("ScheduleForecaster: ", function() {
 
     });
 
+    describe.only('Input format validation ', () => {
+        it('should forecast for daily recurrence ', done => {
+          const forecast = forecaster.forecastSchedule({
+              size: 10,
+              recurrence: 'daily',
+              limitPeriod: 'monthly',
+              startDate: 1542393000,
+              endDate: 1544985000
+          });
+          debug('Forecast : ', forecast);
+          assert.deepEqual(forecast, {
+              '2018': {
+                  '11': 140,
+                  '12': 160
+              }
+          });
+          done();
+        });
+    });
+
     describe('Forecast failure ', () => {
         it('should not forecast when recurrence not given ', done => {
             const forecast = forecaster.forecastSchedule({
